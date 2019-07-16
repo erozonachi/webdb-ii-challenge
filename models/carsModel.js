@@ -14,4 +14,11 @@ module.exports = {
     }
     return db('cars');
   },
+
+  update: function (id, car) {
+    return db('cars')
+      .where({ id })
+      .update(car)
+      .then(count => (count > 0 ? this.get(id) : null));
+  },
 }
