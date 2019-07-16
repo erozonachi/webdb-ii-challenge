@@ -21,4 +21,10 @@ module.exports = {
       .update(car)
       .then(count => (count > 0 ? this.get(id) : null));
   },
+
+  remove: function (id) {
+    return db('cars')
+      .where({ id })
+      .del();
+  },
 }
