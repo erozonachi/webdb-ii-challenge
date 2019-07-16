@@ -6,4 +6,12 @@ module.exports = {
     .insert(newCar)
     .then(([id]) => this.get(id));
   },
+
+  get: function (id = null) {
+    if(id) {
+      return db('cars')
+        .where({ id });
+    }
+    return db('cars');
+  },
 }
