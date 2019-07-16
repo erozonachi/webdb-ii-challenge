@@ -9,4 +9,17 @@ module.exports = {
       res.status(500).json({ error: 'server error' });
     }
   },
+
+  read: async (req, res) => {
+    try {
+      if(req.car) {
+        return res.status(200).json(req.car);
+      }
+      const cars = await carsModel.get();
+
+      res.status(200).json(cars);
+    } catch(error) {
+      res.status(500).json({ error: 'server error' });
+    }
+  },
 };
