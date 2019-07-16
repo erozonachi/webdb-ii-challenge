@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-  return knex.schema.createTableIfNotExists('cars', table => {
+  return knex.schema.createTable('cars', table => {
     table.increments();
     table.text('make')
       .notNullable();
